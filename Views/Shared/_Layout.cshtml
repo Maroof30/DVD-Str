@@ -1,0 +1,156 @@
+﻿<!--A Design by W3layouts
+Author: W3layout
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.title</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <script type="text/javascript" src="~/assets/js/jquery-1.10.2.min.js"></script>
+
+    <link href="~/assets/css/bootstrap.css" rel="stylesheet" />
+    
+    <link href="~/assets/css/style1.css" rel="stylesheet" />
+    
+    <link href="~/assets/js/google-code-prettify/prettify.css" rel="stylesheet" />
+    <link href="~/assets/css/style1.css" rel="stylesheet" type="text/css" media="all" />
+    <link href='http://fonts.googleapis.com/css?family=Julius+Sans+One' rel='stylesheet' type='text/css'>
+    <!--slider-->
+    <script type="text/javascript" src="~/assets/js/modernizr.custom.534511.js"></script>
+    <script type="text/javascript" src="~/assets/js/jquery.min1.js"></script>
+    <script type="text/javascript" src="~/assets/js/jquery.gallery1.js"></script>
+    <script src="~/assets/js/jquery-slider1.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#b1').click(function () {
+                var userName = $('#search').val();
+                $.getJSON("/home/search?search=" + userName, function (data) {
+                    $('#slider').remove();
+                    $('#div1').unload();
+                    $('#div1').load("/home/searchresults?search=" + userName);
+                });
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        $(function () {
+            $('#dg-container').gallery({
+                autoplay: true
+            });
+        });
+    </script>
+    
+    <script src="~/assets/Scripts/jquery.validate-vsdoc.js"></script>
+    <script src="~/assets/Scripts/jquery.validate.js"></script>
+    <script src="~/assets/Scripts/jquery.validate.min.js"></script>
+    <script src="~/assets/Scripts/jquery.validate.unobtrusive.js"></script>
+    <script src="~/assets/Scripts/jquery.validate.unobtrusive.min.js"></script>
+</head>
+
+<body>
+    
+    <div style="background-color:black">
+        <div class="wrap" >  
+            <div style="background-color:black" class="menu">
+                <ul  class="nav">
+                    <li class="active"><a href="/Home/Index">Home</a></li>
+                    <li><a href="/Product/Products">All Movies</a></li>
+                    <li><a href="/Home/Contact">Contact</a></li>
+                </ul>
+            </div>
+                        <input type="text" style="margin:20px" id="search" name="search" value="keyword here" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'keyword here';}">
+                        <input id="b1" type="button" value="Search"/>
+            <div class="soc-icons">
+                <ul>
+                    <li><a href="#">Get In Touch&nbsp;</a></li>
+                    <li><a href="#"><img src="~/images/facebook.png" alt="" /></a></li>
+                    <li><a href="#"><img src="~/images/twitter.png" alt="" /></a></li>
+                    <li><a href="#"><img src="~/images/gplus.png" alt="" /></a></li>
+                </ul>
+
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div style="background-color:black;color:white">
+        <div class="wrap">
+            <div class="header">
+                <div class="logo">
+                    <a href="/Home/Index"><img src="~/images/logoo.jpg" alt="" title="logo"></a>
+                </div>
+                <div class="shopping_cart">
+
+                    <div style="margin-bottom:15px;background-color:black" class="cart">
+                      <a href="/User/ShoppingBasket" title="View my shopping cart" rel="nofollow">
+                          <img style="height:30px;width:80px" src="~/images/header_cart.jpg"/>Cart</a>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="slider-bg" style="background-color:black">
+        <div class="wrap" >
+            <div class="sidebar" style="background-color:black">
+                <div class="sidebar-list"  style="background-color:black">
+                    <br/>
+                    <br />
+                    <br />
+                    <br />
+                    <h2>Categories</h2>
+                    <ul >
+                        <li ><a href="/Category/hollywood">Hollywood </a></li>
+                        <li><a href="/Category/bollywood">Bollywood</a></li>
+                        <li><a href="/Category/lollywood">Lollywood</a></li>
+                        <li><a href="/Category/romantic">Romantic</a></li>
+                        <li><a href="/Category/horror">Horror</a></li>
+                        <li><a href="/Category/love_stories">Love Stories</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id = "div1">
+    @RenderBody()
+    </div>          
+    <div class="footer-bg">
+        <div class="wrap">
+            <div class="footer">
+                <div class="section group">
+                    
+                    <div class="grid_1_of_4 images_1_of_4">
+                        <h3>Your Account</h3>
+                            <p><a id="EditAccount" href="/User/EditDetails">Edit Account  </a>
+                            <br/>
+                                <a id="ViewAccount" href="/User/YourDetails">View Account</a>
+                        </p>
+                    </div>
+                    <div class="grid_1_of_4 images_1_of_4">
+                        <h3>About Us</h3>
+                        <p>Shop and save when you browse our Music Store, DVD Movie & TV Store, Blu-ray Store and Book Store at Tower.com. Enjoy huge savings on everything entertainment from new releases to great deals on bestsellers and classic titles. Catch up with Tower's entertainment blog and browse our different RSS feeds to stay on top of your favorite music, movies, and books!</p>
+                    </div>
+                    <div class="grid_1_of_4 images_1_of_4">
+                        <h3>Complaints & Suggestions</h3>
+                        <p><a href="/Home/Complaints_Suggestions">Click here for complaints</a></p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer1-bg">
+        <div class="wrap">
+            <div class="copy">
+                <p>© 2015 All rights Reserved | Design by Abdul Maroof - BSEF12M032 
+                    &nbsp;<a href="#"></a></p>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
